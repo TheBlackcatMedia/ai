@@ -1,6 +1,6 @@
 # Pendientes y plan de acción
 
-> Última actualización: 2026-04-27
+> Última actualización: 2026-04-28
 > Rama de trabajo: `claude/premiere-pro-editing-LV0nT`
 
 ## Estado actual del setup
@@ -151,11 +151,76 @@ Aprovechar los 29 skills nuevos (Koda Stack + Higgsfield) para producir contenid
 
 ---
 
+## Pendiente 4 — Definir el DNA por marca (Koda DNA)
+
+### Objetivo
+Llenar las 5 dimensiones (Voice, Visual style, Tools, Audience, Rules) de cada archivo en `brands/`, para que todo skill creativo genere contenido alineado a la identidad de cada marca/proyecto.
+
+### Estado
+- ✅ Estructura `brands/` creada (INDEX + 13 archivos con plantilla y meta pre-llenada).
+- ✅ `CLAUDE.md` instruye a los skills a leer el archivo de marca correspondiente.
+- ✅ Voice de **THE BLACKCAT Media** definido (commit `fbe8cb4`).
+
+### Orden de trabajo acordado (4 bloques, después pausa)
+1. **THE BLACKCAT Media** — Voice ✅ · falta Visual / Tools / Audience / Rules
+2. **Cluster Powering Chicago** — Powering Chicago + The Power of Better
+3. **NUMEN Artes Vivas**
+4. **Cluster eléctrico restante** — IBEW Local 134 + ECA + IN-Tech
+
+Quedan para una segunda etapa: los 3 coros de NUMEN, NDC – UNOPS, Rob Johnson Communications, Rotary Club Córdoba.
+
+### Manifesto histórico de BLACKCAT (a recuperar)
+El usuario recuerda que en una sesión previa de Claude Code armaron un manifesto de la marca. Vive en el Mac local del usuario (`~/Desktop/2026/Claude Code`), no en este repo. **Recuperarlo cuando esté hecho el setup local** y agregarlo a `brands/blackcat-media.md` como sección `## Manifesto`.
+
+---
+
+## Pendiente 5 — Setup de Claude Code CLI en el Mac local del usuario
+
+### Objetivo
+Que el usuario pueda trabajar este mismo repo desde su Mac (Claude Code CLI local) además de la web (sandbox actual). GitHub es el puente.
+
+### Estado
+En curso (sesión 2026-04-28, opción C: paso a paso guiado).
+
+### Pasos
+- [ ] Verificar prerequisitos en el Mac: Claude Code CLI instalado (`claude --version`), Git configurado, autenticación GitHub funcionando.
+- [ ] Decidir path para clonar el repo (sugerido: `~/Desktop/2026/Claude Code/ai`).
+- [ ] `git clone` + `git checkout` a la branch `claude/premiere-pro-editing-LV0nT`.
+- [ ] Verificar que Claude Code CLI lee `CLAUDE.md` y `brands/` correctamente.
+- [ ] Resolver fricción de `.mcp.json` (paths Linux específicos del sandbox no funcionan en macOS).
+
+---
+
+## Pendiente 6 — Customizar Claude para uso desde celular (WhatsApp / SMS / mensajes)
+
+### Objetivo
+Configurar un canal por el que el usuario pueda mandarle instrucciones a Claude desde su celular (vía WhatsApp, SMS u otro) sin tener que abrir la web ni la terminal.
+
+### Estado
+Idea pendiente — no investigado aún.
+
+### Por explorar
+- ¿Existe oficialmente un bridge de Claude / Anthropic a WhatsApp? ¿O hay que armarlo custom?
+- Opciones técnicas conocidas a evaluar:
+  - **Twilio + WhatsApp Business API + Anthropic API** → se programa un bot que recibe mensajes y los relaya a Claude.
+  - **Telegram Bot API + Anthropic API** → más simple que WhatsApp Business, mismo concepto.
+  - **iMessage shortcut + Anthropic API** → automation nativa de macOS/iOS.
+  - **Claude.ai mobile app** (si existe) → la opción "oficial" sin fricción técnica.
+- Decidir qué tipo de instrucciones se mandarían desde el celular: ¿chat libre? ¿comandos pre-formateados (`/brief ...`)? ¿sólo lectura de status del proyecto?
+- Consideraciones de seguridad: API keys, autenticación del remitente, rate limiting.
+
+### Cuándo retomar
+Cuando el usuario diga **"armemos el bridge a celular"** o **"configuremos WhatsApp"**.
+
+---
+
 ## Cómo retomar
 
 Para reactivar cualquiera de estos pendientes, decirme:
-- **"retomemos Premiere"** → arrancamos con Pendiente 1 (scripts `.jsx`)
-- **"construyamos el MCP de Premiere"** → arrancamos con Pendiente 2 (requiere haber avanzado en P1)
-- **"armemos el DNA creativo"** o **"hagamos un reel con el pipeline"** → arrancamos con Pendiente 3
+- **"retomemos Premiere"** → Pendiente 1 (scripts `.jsx`)
+- **"construyamos el MCP de Premiere"** → Pendiente 2 (requiere haber avanzado en P1)
+- **"armemos el DNA creativo"** o **"sigamos con las marcas"** → Pendientes 3 y 4
+- **"hagamos el setup en mi Mac"** → Pendiente 5
+- **"configuremos WhatsApp / celular"** → Pendiente 6
 
 Yo leeré este archivo al inicio para recargar el contexto.
